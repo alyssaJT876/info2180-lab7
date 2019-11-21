@@ -10,7 +10,7 @@ try{
       if (!(empty($_GET["country"])) &&  isset($_GET["country"])) {
          $country = filter_input(INPUT_GET, 'country', FILTER_SANITIZE_SPECIAL_CHARS);
         if ($_GET['context']==="country"){
-        $resu=getResult("SELECT * FROM countries WHERE name LIKE '%$country%';",$con);
+        $res=getResult("SELECT * FROM countries WHERE name LIKE '%$country%';",$con);
         displayResultCountries($res);
         }else{
         $sql="SELECT c.name, c.district, c.population FROM cities c join countries cs on c.country_code = cs.code WHERE cs.name='$country'";
